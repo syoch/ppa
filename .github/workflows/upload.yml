@@ -1,0 +1,55 @@
+# API parameters(inputs) sample
+# {
+#   "version": "${{ github.ref_name }}",
+#   "repo": "syoch/LaTeX-Core",
+#   "deb": "report-core_0.1.0.1.deb",
+# }
+
+# Behavior:
+# 0. branch: gh-pages
+# 1. Download the archive from the repository to /debs
+#   - url: https://github.com/{repo}/releases/download/{rev}/{deb}
+# 3. using apt-ftparchive to create the Contents, Packages, and Release files
+
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version of the package'
+        required: true
+      repo:
+        description: 'Repository name'
+        required: true
+      deb:
+        description: 'Debian package name'
+        required: true
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+
+      - name: Download deb
+        run: |
+          mkdir -p debs
+          curl -L -o debs/${{ github.event.inputs.deb }} \
+            https://github.com/${{ github.event.inputs.repo }}/releases/download/${{ github.event.inputs.version }}/${{ github.event.inputs.deb }}
+
+      - name: Create apt repository
+        run: |
+          mkdir -p debs/Contents
+          mkdir -p debs/Packages
+          mkdir -p debs/Release
+          cd debs
+          apt-ftparchive packages . > Packages
+          apt-ftparchive contents . | gzip -9 > Contents.gz
+          apt-ftparchive release . > Release
