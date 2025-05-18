@@ -1,0 +1,14 @@
+Package: report-core
+Architecture: all
+Version: 1.0.5.8
+Priority: optional
+Section: tools
+Maintainer: syoch64@gmail.com
+Filename: ./report-core-1.0.5.8.deb
+Size: 5740
+MD5sum: 0535c5692817fbaa4e202c164fc1f148
+SHA1: 60a72ebcf29883b35d9dbf05183c8941c98bf45c
+SHA256: 195dd7fb0090036dad0aeeee0753ec4cb6796d84004a5c627dced9fc14d85a90
+SHA512: 03ee64b6d3f8c44bff70cb9f96e86f7bfb123bb68a47300c94589fdc75a77fdbb7986683d9de8b0f87781fb6cfecf33daa3ed2f8d09b30753e6aac13da1eef72
+Description: Report Core
+
