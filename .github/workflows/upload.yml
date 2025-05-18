@@ -46,10 +46,16 @@ jobs:
 
       - name: Create apt repository
         run: |
-          mkdir -p debs/Contents
-          mkdir -p debs/Packages
-          mkdir -p debs/Release
           cd debs
           apt-ftparchive packages . > Packages
           apt-ftparchive contents . | gzip -9 > Contents.gz
           apt-ftparchive release . > Release
+
+      - name: Commit & Push
+        run: |
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "github-actions@github.com"
+          git checkout gh-pages
+          git add .
+          git commit -m "Update repository for ${{ inputs.repo }} ${{ inputs.version }}"
+          git push
