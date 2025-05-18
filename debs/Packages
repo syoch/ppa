@@ -12,3 +12,17 @@ SHA256: 195dd7fb0090036dad0aeeee0753ec4cb6796d84004a5c627dced9fc14d85a90
 SHA512: 03ee64b6d3f8c44bff70cb9f96e86f7bfb123bb68a47300c94589fdc75a77fdbb7986683d9de8b0f87781fb6cfecf33daa3ed2f8d09b30753e6aac13da1eef72
 Description: Report Core
 
+Package: report-core
+Architecture: all
+Version: 1.0.6.3
+Priority: optional
+Section: tools
+Maintainer: syoch64@gmail.com
+Filename: ./report-core-1.0.6.3.deb
+Size: 5736
+MD5sum: 5e4f4200e02ffa90108fdda2afb0e921
+SHA1: 2bc31273ecf0a6a19ae7d1c10aa9545aae18ca49
+SHA256: 0317321d2e3fe0251a39e5c634ac383a3b0ecaefa518a0720e292e6a1d1771fd
+SHA512: 03a9d1e9fc685fce3d082f2bde1a24efbda20dd38994fea7cbc53e38043357218e937349154eb0fdd0d54230cf33469e428c2417473ce701c6fe9d2d5f97002e
+Description: Report Core
+
